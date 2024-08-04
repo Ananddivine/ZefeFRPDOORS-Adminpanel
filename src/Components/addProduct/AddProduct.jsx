@@ -9,7 +9,8 @@ const AddProduct = () => {
         image: "",
         category: "shop",
         new_price: "",
-        old_price: ""
+        old_price: "",
+        description: "" // Added description field
     });
 
     const imageHandler = (e) => {
@@ -32,6 +33,7 @@ const AddProduct = () => {
         formData.append('category', productDetails.category);
         formData.append('new_price', productDetails.new_price);
         formData.append('old_price', productDetails.old_price);
+        formData.append('description', productDetails.description); // Include description
       
         try {
           const response = await fetch('https://zefefrpdoors-backend.onrender.com/upload', {
@@ -81,7 +83,6 @@ const AddProduct = () => {
           console.error('Error during fetch:', error);
         }
       };
-      
 
     return (
         <div className='AddProduct'>
@@ -104,6 +105,10 @@ const AddProduct = () => {
                 <select value={productDetails.category} onChange={changeHandler} name='category' className='addproduct-selector'>
                     <option value='shop'>Shop</option>
                 </select>
+            </div>
+            <div className="addproduct-itemfield">
+                <p>Description</p>
+                <textarea value={productDetails.description} onChange={changeHandler} name='description' placeholder='Type Here' />
             </div>
             <div className="addproduct-itemfield">
                 <label htmlFor='file-input'>

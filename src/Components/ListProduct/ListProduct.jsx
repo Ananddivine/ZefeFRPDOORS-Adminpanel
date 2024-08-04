@@ -7,7 +7,7 @@ const ListProduct = () => {
 
   const fetchInfo = async () => {
     try {
-      const response = await fetch('https://zefefrpdoors-backend.onrender.com/allproducts');
+      const response = await fetch('http://localhost:4000/allproducts');
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -25,7 +25,7 @@ const ListProduct = () => {
 
   const remove_product = async (id) => {
     try {
-      const response = await fetch('https://zefefrpdoors-backend.onrender.com/removeproduct', {
+      const response = await fetch('http://localhost:4000/removeproduct', {
         method: 'POST',
         headers: {
           Accept: 'application/json',
